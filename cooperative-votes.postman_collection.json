@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "c88d9824-d14e-4ce6-8612-6d0159bf3d8e",
+		"name": "cooperative-votes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/associate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Paulo Gustavo\",\n\t\"cpf\":\"94494312053\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/associate",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"associate"
+					]
+				},
+				"description": "Cria novo associado."
+			},
+			"response": []
+		},
+		{
+			"name": "/associate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/associate",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"associate"
+					]
+				},
+				"description": "Lista todos associados cadastrados."
+			},
+			"response": []
+		},
+		{
+			"name": "/votingAgenda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\":\"Eleição Teste 3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/votingAgenda",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"votingAgenda"
+					]
+				},
+				"description": "Cadastrar uma nova pauta."
+			},
+			"response": []
+		},
+		{
+			"name": "/votingAgenda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/votingAgenda",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"votingAgenda"
+					]
+				},
+				"description": "Lista todas pautas cadastradas."
+			},
+			"response": []
+		},
+		{
+			"name": "/votingSession",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"minutes\":20,\n\t\"idVotingAgenda\":2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/votingSession",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"votingSession"
+					]
+				},
+				"description": "Cria uma nova sessão de votação e associa a uma pauta."
+			},
+			"response": []
+		},
+		{
+			"name": "/votingSession",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/votingSession",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"votingSession"
+					]
+				},
+				"description": "Lista todas as sessões de votação e seus status. "
+			},
+			"response": []
+		},
+		{
+			"name": "/votingSession/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/votingSession/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"votingSession",
+						"2"
+					]
+				},
+				"description": "Lista uma sessão de votação pelo id."
+			},
+			"response": []
+		},
+		{
+			"name": "/vote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cpf\":\"99619975065\",\n\t\"vote\":\"não\",\n\t\"idVotingAgenda\":2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/vote",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vote"
+					]
+				},
+				"description": "Registra o voto do associado."
+			},
+			"response": []
+		},
+		{
+			"name": "/vote/result/{idVotingAgenda}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/vote/result/3",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vote",
+						"result",
+						"3"
+					]
+				},
+				"description": "Apura resultado da votação e o status da sessão de votação, se está aberto ou fechado para novos votos."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
